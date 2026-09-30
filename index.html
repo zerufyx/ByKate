@@ -176,6 +176,37 @@ section.block{padding-block:clamp(3.5rem,8vw,6.5rem)}
 .linkbtn{background:none;border:0;padding:0;color:var(--panel-ink);font:600 .85rem var(--f-body);text-decoration:underline;text-underline-offset:3px;cursor:pointer}
 .ticket .fine{font-size:.8rem;color:var(--panel-muted)}
 .ticket .fine a{color:var(--panel-ink)}
+.stage-s{display:flex;flex-direction:column;gap:1.1rem;min-width:0}
+.stage-top{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
+.stage-top .sum{font-size:.82rem;color:var(--panel-muted)}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.btn-ghost-d{border-color:var(--panel-line);color:var(--panel-ink);background:transparent;width:100%}
+.btn-ghost-d:hover{border-color:#fff}
+.days{display:flex;gap:.5rem;overflow-x:auto;padding-bottom:.4rem;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch;scrollbar-width:thin}
+.day{flex:0 0 auto;scroll-snap-align:start;width:64px;padding:.6rem 0;border-radius:14px;border:1px solid var(--panel-line);background:transparent;color:var(--panel-ink);cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:.1rem;font:500 .72rem/1.2 var(--f-body);text-transform:uppercase;letter-spacing:.06em}
+.day b{font-family:var(--f-display);font-size:1.45rem;font-weight:500;letter-spacing:0;font-variant-numeric:lining-nums}
+.day:hover:not(:disabled){border-color:#FF1F30}
+.day[aria-selected="true"]{background:#E4001C;border-color:#E4001C;color:#fff}
+.day:disabled{opacity:.28;cursor:not-allowed}
+.times-lbl{font-size:.85rem;color:var(--panel-muted)}
+.times{display:grid;grid-template-columns:repeat(auto-fill,minmax(84px,1fr));gap:.5rem;margin-top:.6rem}
+.time{padding:.7rem 0;border-radius:10px;border:1px solid var(--panel-line);background:transparent;color:var(--panel-ink);font:600 .9rem/1 var(--f-body);cursor:pointer;font-variant-numeric:tabular-nums}
+.time:hover{border-color:#FF1F30}
+.time[aria-selected="true"]{background:#fff;color:#171213;border-color:#fff}
+.skel{height:44px;border-radius:10px;background:linear-gradient(90deg,rgba(255,255,255,.04),rgba(255,255,255,.09),rgba(255,255,255,.04));background-size:200% 100%;animation:sk 1.2s linear infinite}
+@keyframes sk{to{background-position:-200% 0}}
+.recap{border:1px dashed var(--panel-line);border-radius:14px;padding:1rem;display:grid;gap:.35rem;font-size:.92rem}
+.recap .when{font-family:var(--f-display);font-size:1.3rem;line-height:1.2}
+.recap .muted{color:var(--panel-muted)}
+.bk-form{display:grid;gap:.8rem}
+.bk-form label{display:flex;flex-direction:column;gap:.35rem;font-size:.78rem;font-weight:600;letter-spacing:.04em;color:var(--panel-ink)}
+.bk-form em{font-style:normal;font-weight:400;color:var(--panel-muted)}
+.bk-form input,.bk-form textarea{font:400 1rem/1.4 var(--f-body);color:var(--panel-ink);background:rgba(255,255,255,.05);border:1px solid var(--panel-line);border-radius:12px;padding:.8rem .95rem;width:100%;min-width:0;resize:vertical}
+.bk-form input:focus,.bk-form textarea:focus{outline:none;border-color:#FF1F30}
+.bk-err{color:#FF5A66;font-size:.88rem;min-height:1em}
+.bk-err:empty{display:none}
+.done{align-items:stretch;text-align:left}
+.okmark{width:56px;height:56px;border-radius:50%;display:grid;place-items:center;background:#E4001C;color:#fff;font-size:1.6rem}
 @media (max-width:880px){.book{grid-template-columns:1fr}}
 
 /* Gallery */
@@ -332,7 +363,7 @@ footer.site .quote{font-family:var(--f-display);font-style:italic;color:var(--in
     <div class="head">
       <span class="eyebrow">Servicios y precios</span>
       <h2>Elige tu <em>transformación</em></h2>
-      <p>Añade los servicios que quieres y reserva tu horario en Booksy. Los precios marcados “desde” pueden variar según tu cabello; Kate te confirma el total en la cita.</p>
+      <p>Añade los servicios que quieres y reserva tu horario aquí mismo. Los precios marcados “desde” pueden variar según tu cabello; Kate te confirma el total en la cita.</p>
     </div>
     <div class="tabs" role="tablist" aria-label="Categorías de servicios" id="tabs"></div>
     <ul class="menu" id="menu"></ul>
@@ -349,30 +380,64 @@ footer.site .quote{font-family:var(--f-display);font-style:italic;color:var(--in
       <div>
         <span class="eyebrow">Agenda tu cita</span>
         <h2>Tu lugar en la <em>silla roja</em></h2>
-        <p class="intro">Arma tu cita aquí y termina la reserva en Booksy, donde ves los horarios libres de Kate en tiempo real.</p>
+        <p class="intro">Reserva aquí mismo. Ves los horarios libres de Kate en tiempo real y tu cita queda confirmada al instante.</p>
         <ol class="steps">
           <li><div><b>Elige tus servicios</b><span>Añádelos desde el menú o con los atajos de la derecha.</span></div></li>
-          <li><div><b>Reserva tu horario en Booksy</b><span>Selecciona el mismo servicio, el día y la hora que te queden mejor.</span></div></li>
-          <li><div><b>Llega a la silla roja</b><span>3984 Town Center Blvd, Orlando, FL 32837. Booksy te envía la confirmación.</span></div></li>
+          <li><div><b>Escoge día y hora</b><span>Solo ves los horarios en los que cabe todo lo que elegiste.</span></div></li>
+          <li><div><b>Confirma y llega a la silla roja</b><span>3984 Town Center Blvd, Orlando, FL 32837. Pagas en el salón.</span></div></li>
         </ol>
       </div>
       <div class="ticket" aria-live="polite">
-        <h3>Tu cita <small id="tcount">0 servicios</small></h3>
-        <ul class="picked" id="picked"></ul>
-        <div class="empty" id="empty">
-          <span>Aún no has elegido servicios. Empieza con uno de los más buscados:</span>
-          <div class="chips" id="quick"></div>
+        <!-- Paso 1: servicios -->
+        <div class="stage-s" id="stServices">
+          <h3>Tu cita <small id="tcount">0 servicios</small></h3>
+          <ul class="picked" id="picked"></ul>
+          <div class="empty" id="empty">
+            <span>Aún no has elegido servicios. Empieza con uno de los más buscados:</span>
+            <div class="chips" id="quick"></div>
+          </div>
+          <div class="totals">
+            <div><span>Tiempo aprox.</span><b id="ttime">—</b></div>
+            <div><span id="tpricelbl">Total</span><b id="tprice">—</b></div>
+          </div>
+          <button class="btn btn-red" type="button" id="toWhen" disabled>Elegir día y hora →</button>
+          <p class="fine">¿Es tu primera vez o vienes de otro color? <a href="https://ig.me/m/bykate.aq" target="_blank" rel="noopener">Escríbele antes por Instagram</a> y te orienta.</p>
         </div>
-        <div class="totals">
-          <div><span>Tiempo aprox.</span><b id="ttime">—</b></div>
-          <div><span id="tpricelbl">Total</span><b id="tprice">—</b></div>
+        <!-- Paso 2: día y hora -->
+        <div class="stage-s" id="stWhen" hidden>
+          <div class="stage-top"><button class="linkbtn" type="button" data-go="stServices">← Servicios</button><span class="sum" id="whenSum"></span></div>
+          <h3>¿Qué día te queda bien?</h3>
+          <div class="days" id="days" role="listbox" aria-label="Días disponibles"></div>
+          <div class="times-wrap">
+            <p class="times-lbl" id="timesLbl"></p>
+            <div class="times" id="times" role="listbox" aria-label="Horas disponibles"></div>
+          </div>
+          <button class="btn btn-red" type="button" id="toDetails" disabled>Continuar →</button>
         </div>
-        <a class="btn btn-red" id="bookBtn" href="https://booksy.com/en-us/dl/show-business/895745" target="_blank" rel="noopener">Reservar horario en Booksy →</a>
-        <div class="row">
-          <button class="linkbtn" type="button" id="copyBtn">Copiar mi selección</button>
-          <span>Pégala en las notas de tu reserva.</span>
+        <!-- Paso 3: datos -->
+        <div class="stage-s" id="stDetails" hidden>
+          <div class="stage-top"><button class="linkbtn" type="button" data-go="stWhen">← Cambiar hora</button></div>
+          <h3>Confirma tu cita</h3>
+          <div class="recap" id="recap"></div>
+          <form class="bk-form" id="bkForm" novalidate>
+            <label>Nombre<input id="bkName" autocomplete="name" maxlength="60" required placeholder="Tu nombre y apellido"></label>
+            <label>Teléfono<input id="bkPhone" type="tel" autocomplete="tel" inputmode="tel" maxlength="20" required placeholder="(407) 555-0123"></label>
+            <label>Email <em>(opcional)</em><input id="bkEmail" type="email" autocomplete="email" maxlength="120" placeholder="para tu confirmación"></label>
+            <label>Notas para Kate <em>(opcional)</em><textarea id="bkNotes" maxlength="500" rows="2" placeholder="Ej. vengo de un tinte negro, tengo el cabello por la cintura"></textarea></label>
+            <button class="btn btn-red" type="submit" id="bkSubmit">Confirmar cita</button>
+            <p class="bk-err" id="bkErr" role="alert"></p>
+            <p class="fine">Pagas en el salón. Si necesitas cambiar o cancelar, escríbele a Kate por <a href="https://ig.me/m/bykate.aq" target="_blank" rel="noopener">Instagram</a>.</p>
+          </form>
         </div>
-        <p class="fine">¿Es tu primera vez o vienes de otro color? <a href="https://ig.me/m/bykate.aq" target="_blank" rel="noopener">Escríbele antes por Instagram</a> y te orienta.</p>
+        <!-- Paso 4: confirmada -->
+        <div class="stage-s done" id="stDone" hidden>
+          <div class="okmark" aria-hidden="true">✓</div>
+          <h3>¡Tu cita está confirmada!</h3>
+          <div class="recap" id="doneRecap"></div>
+          <button class="btn btn-red" type="button" id="icsBtn">Agregar a mi calendario</button>
+          <a class="btn btn-ghost-d" href="https://ig.me/m/bykate.aq" target="_blank" rel="noopener">Escribirle a Kate</a>
+          <button class="linkbtn" type="button" id="againBtn">Hacer otra reserva</button>
+        </div>
       </div>
     </div>
   </div>
@@ -450,8 +515,7 @@ footer.site .quote{font-family:var(--f-display);font-style:italic;color:var(--in
       <div class="side">
         <span class="eyebrow">Deja tu reseña</span>
         <h3>¿Te sentaste en la silla roja?</h3>
-        <p>Cuéntale a otras clientas cómo te fue. Tu reseña aparece en esta página junto a las de Booksy.</p>
-        <p style="font-size:.9rem">Si reservaste por Booksy, también puedes calificar tu cita desde la app.</p>
+        <p>Cuéntale a otras clientas cómo te fue. Tu reseña aparece en esta página al instante.</p>
       </div>
       <form class="rv" id="rvForm" novalidate>
         <label>Tu nombre<input id="rvName" name="name" maxlength="40" autocomplete="given-name" required placeholder="Ej. Daniela"></label>
@@ -494,7 +558,7 @@ footer.site .quote{font-family:var(--f-display);font-style:italic;color:var(--in
       <div class="info">
         <div>
           <h3>Horario</h3>
-          <p>Con cita previa. Los horarios disponibles se actualizan en tiempo real en Booksy.</p>
+          <p>Con cita previa. Al <a href="#agenda" style="color:var(--red);font-weight:600">agendar</a> ves los horarios libres en tiempo real.</p>
         </div>
         <div>
           <h3>Comodidades</h3>
@@ -503,7 +567,7 @@ footer.site .quote{font-family:var(--f-display);font-style:italic;color:var(--in
         <div class="social">
           <a href="https://www.instagram.com/bykate.aq/" target="_blank" rel="noopener">Instagram <span>@bykate.aq →</span></a>
           <a href="https://www.threads.net/@bykate.aq" target="_blank" rel="noopener">Threads <span>@bykate.aq →</span></a>
-          <a href="https://booksy.com/en-us/dl/show-business/895745" target="_blank" rel="noopener">Booksy <span>Reservar →</span></a>
+          <a href="#agenda">Agenda tu cita <span>Aquí mismo →</span></a>
         </div>
       </div>
     </div>
@@ -526,6 +590,7 @@ footer.site .quote{font-family:var(--f-display);font-style:italic;color:var(--in
 <div class="toast" id="toast" role="status"></div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
 <script>
 /* ---------- Data (Booksy, sept 2026) ---------- */
 const CATS=[
@@ -534,7 +599,7 @@ const CATS=[
   {id:"cortes",name:"Cortes y peinado"},
   {id:"ext",name:"Extensiones"}
 ];
-const SERVICES=[
+let SERVICES=[
   {id:"organico",cat:"alisados",name:"Alisado Orgánico",desc:"Tu cabello queda 100% liso y libre de ondas. Duración aproximada de 6 meses.",min:135,price:250,from:true},
   {id:"fotonico",cat:"alisados",name:"Alisado Fotónico",desc:"Alisado orgánico sellado con luz LED azul para un mejor resultado. Duración aproximada de 4 meses.",min:150,price:350},
   {id:"ninas",cat:"alisados",name:"Alisado para niñas y embarazadas",desc:"Opción de alisado pensada para niñas y mujeres embarazadas.",min:90,price:350,from:true},
@@ -576,11 +641,28 @@ async function copyText(text,okMsg){
 (()=>{const words=["Alisado orgánico","Balayage","Corrección de color","Reconstrucción capilar","Botox capilar","Extensiones","Rojos intensos","Hidratación profunda"];
 const html=words.map(w=>"<span>"+w+"</span>").join("");$("#ticker").innerHTML=html+html})();
 
+/* ---------- Supabase + fechas (hora de Orlando) ---------- */
+const SB_URL="https://drkcstmcdscklcrefxbs.supabase.co",SB_KEY="sb_publishable_k4jAuf7UCzpT_kp2jSpW-A_1ICXHA2s";
+let sb=null;try{sb=window.supabase?window.supabase.createClient(SB_URL,SB_KEY,{auth:{persistSession:false}}):null}catch(e){sb=null}
+const TZ="America/New_York";
+const fDay=new Intl.DateTimeFormat("es-US",{timeZone:TZ,weekday:"short"});
+const fNum=new Intl.DateTimeFormat("es-US",{timeZone:TZ,day:"numeric"});
+const fMon=new Intl.DateTimeFormat("es-US",{timeZone:TZ,month:"short"});
+const fKey=new Intl.DateTimeFormat("en-CA",{timeZone:TZ,year:"numeric",month:"2-digit",day:"2-digit"});
+const fTime=new Intl.DateTimeFormat("en-US",{timeZone:TZ,hour:"numeric",minute:"2-digit"});
+const fLong=new Intl.DateTimeFormat("es-US",{timeZone:TZ,weekday:"long",day:"numeric",month:"long"});
+const cap=s=>s.charAt(0).toUpperCase()+s.slice(1);
+const clean=s=>s.replace(/\./g,"");
+const addDays=(k,n)=>{const d=new Date(k+"T12:00:00Z");d.setUTCDate(d.getUTCDate()+n);return d.toISOString().slice(0,10)};
+const dayDate=k=>new Date(k+"T12:00:00Z");
+
 /* ---------- Services + selection ---------- */
 let current="alisados";
 let picked=[];
 try{const s=JSON.parse(localStorage.getItem("bykate-picked")||"[]");if(Array.isArray(s))picked=s.filter(id=>SERVICES.some(x=>x.id===id))}catch(e){}
 const save=()=>{try{localStorage.setItem("bykate-picked",JSON.stringify(picked))}catch(e){}};
+const pickedItems=()=>picked.map(id=>SERVICES.find(s=>s.id===id)).filter(Boolean);
+const totalMin=()=>pickedItems().reduce((a,s)=>a+s.min,0);
 
 function renderTabs(){
   $("#tabs").innerHTML=CATS.map(c=>{const n=SERVICES.filter(s=>s.cat===c.id).length;
@@ -589,14 +671,15 @@ function renderTabs(){
 function renderMenu(){
   $("#menu").setAttribute("aria-labelledby","tab-"+current);
   $("#menu").innerHTML=SERVICES.filter(s=>s.cat===current).map(s=>{const on=picked.includes(s.id);
-    return `<li class="svc"><div class="t"><h3>${s.name}</h3><p>${s.desc}</p></div>
+    return `<li class="svc"><div class="t"><h3>${esc(s.name)}</h3><p>${esc(s.desc)}</p></div>
     <span class="dur">${fmtMin(s.min)}</span>
     <span class="price">${s.from?"<small>desde</small>":""}${money(s.price)}</span>
-    <button class="add" type="button" data-id="${s.id}" aria-pressed="${on}" aria-label="${on?"Quitar":"Añadir"} ${s.name}">${on?"✓ Añadido":"+ Añadir"}</button></li>`}).join("");
+    <button class="add" type="button" data-id="${s.id}" aria-pressed="${on}" aria-label="${on?"Quitar":"Añadir"} ${esc(s.name)}">${on?"✓ Añadido":"+ Añadir"}</button></li>`}).join("");
 }
+function totalsText(items){const total=items.reduce((a,s)=>a+s.price,0),from=items.some(s=>s.from);return (from?"desde ":"")+money(total)}
 function renderTicket(){
-  const items=picked.map(id=>SERVICES.find(s=>s.id===id));
-  $("#picked").innerHTML=items.map(s=>`<li><span class="n">${s.name}<small>${fmtMin(s.min)}</small></span><span class="pp">${s.from?"desde ":""}${money(s.price)}</span><button type="button" data-rm="${s.id}" aria-label="Quitar ${s.name}">×</button></li>`).join("");
+  const items=pickedItems();
+  $("#picked").innerHTML=items.map(s=>`<li><span class="n">${esc(s.name)}<small>${fmtMin(s.min)}</small></span><span class="pp">${s.from?"desde ":""}${money(s.price)}</span><button type="button" data-rm="${s.id}" aria-label="Quitar ${esc(s.name)}">×</button></li>`).join("");
   $("#empty").hidden=items.length>0;
   const n=items.length;
   $("#tcount").textContent=n+(n===1?" servicio":" servicios");
@@ -604,50 +687,160 @@ function renderTicket(){
   $("#ttime").textContent=n?fmtMin(mins):"—";
   $("#tprice").textContent=n?money(total):"—";
   $("#tpricelbl").textContent=from?"Desde":"Total";
-  $("#mcount").textContent=n?(n+(n===1?" servicio · ":" servicios · ")+(from?"desde ":"")+money(total)):"";
-  $("#mbarBtn").textContent=n?"Ver mi cita":"Agendar cita";
-  $("#copyBtn").parentElement.hidden=!n;
+  $("#mcount").textContent=n?(n+(n===1?" servicio · ":" servicios · ")+totalsText(items)):"";
+  $("#mbarBtn").textContent=n?"Elegir día y hora":"Agendar cita";
+  $("#toWhen").disabled=!n;
 }
-$("#quick").innerHTML=QUICK.map(id=>{const s=SERVICES.find(x=>x.id===id);return `<button class="chip" type="button" data-id="${id}">+ ${s.name}</button>`}).join("");
-function toggle(id){const i=picked.indexOf(id);if(i>-1)picked.splice(i,1);else{picked.push(id);toast("Añadido: "+SERVICES.find(s=>s.id===id).name)}save();renderMenu();renderTicket()}
+function renderQuick(){$("#quick").innerHTML=QUICK.map(id=>SERVICES.find(x=>x.id===id)).filter(Boolean).map(s=>`<button class="chip" type="button" data-id="${s.id}">+ ${esc(s.name)}</button>`).join("")}
+function toggle(id){
+  const i=picked.indexOf(id);
+  if(i>-1)picked.splice(i,1);
+  else{if(picked.length>=6){toast("Máximo 6 servicios por cita");return}picked.push(id);toast("Añadido: "+SERVICES.find(s=>s.id===id).name)}
+  save();renderMenu();renderTicket();
+  if(!$("#stWhen").hidden||!$("#stDetails").hidden){picked.length?go("stWhen"):go("stServices")}
+}
+
+/* ---------- Pasos de la reserva ---------- */
+const STAGES=["stServices","stWhen","stDetails","stDone"];
+function go(id){
+  STAGES.forEach(s=>$("#"+s).hidden=s!==id);
+  if(id==="stWhen"){const items=pickedItems();$("#whenSum").textContent=items.length+(items.length===1?" servicio · ":" servicios · ")+fmtMin(totalMin());loadSlots()}
+  const t=$(".ticket").getBoundingClientRect();if(t.top<70||t.top>innerHeight*.6)$(".ticket").scrollIntoView({behavior:"smooth",block:"start"});
+}
+let slotsByDay={},selDay=null,selSlot=null,slotsFor="",lastBooking=null,notice="";
+function noSlotsMsg(msg){$("#days").innerHTML="";$("#times").innerHTML="";$("#timesLbl").innerHTML=msg}
+async function loadSlots(force){
+  const mins=totalMin(),key=picked.join(",")+"|"+mins;
+  if(!force&&key===slotsFor&&Object.keys(slotsByDay).length){renderDays();return}
+  slotsFor=key;selSlot=null;slotsByDay={};$("#toDetails").disabled=true;
+  if(mins>600){noSlotsMsg('Lo que elegiste pasa de 10 horas. <a href="https://ig.me/m/bykate.aq" target="_blank" rel="noopener" style="color:#fff">Escríbele a Kate</a> para organizarlo en dos citas.');return}
+  $("#days").innerHTML=Array(7).fill('<div class="skel" style="flex:0 0 64px;height:70px"></div>').join("");
+  $("#times").innerHTML=Array(6).fill('<div class="skel"></div>').join("");
+  $("#timesLbl").textContent="Buscando horarios libres…";
+  if(!sb){noSlotsMsg('No pudimos cargar los horarios. <a href="https://ig.me/m/bykate.aq" target="_blank" rel="noopener" style="color:#fff">Escríbele a Kate por Instagram</a>.');return}
+  const today=fKey.format(new Date());
+  const {data,error}=await sb.rpc("bk_slots",{p_from:today,p_to:addDays(today,44),p_minutes:mins});
+  if(key!==slotsFor)return;
+  if(error){noSlotsMsg('No pudimos cargar los horarios. Intenta de nuevo o <a href="https://ig.me/m/bykate.aq" target="_blank" rel="noopener" style="color:#fff">escríbele a Kate</a>.');return}
+  (data||[]).forEach(r=>{const k=fKey.format(new Date(r.slot));(slotsByDay[k]=slotsByDay[k]||[]).push(r.slot)});
+  if(!selDay||!slotsByDay[selDay])selDay=Object.keys(slotsByDay).sort()[0]||null;
+  renderDays();
+}
+function renderDays(){
+  const today=fKey.format(new Date());let h="";
+  for(let i=0;i<45;i++){const k=addDays(today,i),d=dayDate(k),has=!!slotsByDay[k];
+    h+=`<button type="button" class="day" role="option" data-day="${k}" aria-selected="${k===selDay}" ${has?"":"disabled"} aria-label="${cap(fLong.format(d))}${has?"":", sin horarios"}"><span>${clean(fDay.format(d))}</span><b>${fNum.format(d)}</b><span>${clean(fMon.format(d))}</span></button>`}
+  $("#days").innerHTML=h;
+  const sel=$('#days .day[aria-selected="true"]');if(sel)$("#days").scrollLeft=Math.max(0,sel.offsetLeft-$("#days").offsetLeft-8);
+  renderTimes();
+}
+function renderTimes(){
+  const list=selDay?slotsByDay[selDay]:null;
+  if(!list){$("#times").innerHTML="";$("#timesLbl").innerHTML=Object.keys(slotsByDay).length?"Elige un día.":'No hay horarios libres en las próximas semanas para esta combinación. <a href="https://ig.me/m/bykate.aq" target="_blank" rel="noopener" style="color:#fff">Escríbele a Kate</a> y te busca un espacio.';$("#toDetails").disabled=true;return}
+  $("#timesLbl").textContent=(notice?notice+" ":"")+cap(fLong.format(dayDate(selDay)))+" · "+list.length+(list.length===1?" horario libre":" horarios libres");notice="";
+  $("#times").innerHTML=list.map(s=>`<button type="button" class="time" role="option" data-slot="${s}" aria-selected="${s===selSlot}">${fTime.format(new Date(s))}</button>`).join("");
+  $("#toDetails").disabled=!selSlot;
+}
+function recapHTML(start,end,items,totalLabel){
+  return `<span class="when">${cap(fLong.format(new Date(start)))}<br>${fTime.format(new Date(start))} – ${fTime.format(new Date(end))}</span>
+  <span>${items.map(s=>esc(s.name)).join(" + ")}</span>
+  <span class="muted">Total aprox. ${totalLabel} · K.A Beauty Spa, 3984 Town Center Blvd</span>`;
+}
+$("#toWhen").addEventListener("click",()=>go("stWhen"));
+$("#toDetails").addEventListener("click",()=>{
+  const items=pickedItems(),end=new Date(new Date(selSlot).getTime()+totalMin()*60000).toISOString();
+  $("#recap").innerHTML=recapHTML(selSlot,end,items,totalsText(items));
+  $("#bkErr").textContent="";
+  try{const me=JSON.parse(localStorage.getItem("bykate-me")||"{}");if(me.n&&!$("#bkName").value)$("#bkName").value=me.n;if(me.p&&!$("#bkPhone").value)$("#bkPhone").value=me.p;if(me.e&&!$("#bkEmail").value)$("#bkEmail").value=me.e}catch(e){}
+  go("stDetails");
+});
+const ERRS={invalid_name:"Escribe tu nombre completo.",invalid_phone:"Revisa tu teléfono (mínimo 10 dígitos).",invalid_email:"Revisa tu email o déjalo vacío.",invalid_services:"Uno de los servicios ya no está disponible. Revisa tu selección.",too_many:"Ya tienes 3 citas próximas con este teléfono. Escríbele a Kate si necesitas otra."};
+$("#bkForm").addEventListener("submit",async e=>{
+  e.preventDefault();
+  const name=$("#bkName").value.trim(),phone=$("#bkPhone").value.trim(),email=$("#bkEmail").value.trim(),notes=$("#bkNotes").value.trim();
+  const err=$("#bkErr");err.textContent="";
+  if(name.length<2){err.textContent=ERRS.invalid_name;$("#bkName").focus();return}
+  if(phone.replace(/\D/g,"").length<10){err.textContent=ERRS.invalid_phone;$("#bkPhone").focus();return}
+  if(!sb){err.textContent="No pudimos conectar. Intenta de nuevo en un momento.";return}
+  const btn=$("#bkSubmit");btn.disabled=true;btn.textContent="Confirmando…";
+  const items=pickedItems();
+  try{
+    const {data,error}=await sb.rpc("bk_book",{p_start:selSlot,p_services:picked,p_name:name,p_phone:phone,p_email:email||null,p_notes:notes||null});
+    if(error){
+      const code=Object.keys(ERRS).concat("slot_taken").find(c=>(error.message||"").includes(c));
+      if(code==="slot_taken"){toast("Esa hora se acaba de ocupar");notice="Alguien acaba de tomar esa hora, elige otra.";slotsFor="";go("stWhen");return}
+      err.textContent=ERRS[code]||"No se pudo confirmar tu cita. Intenta de nuevo.";return;
+    }
+    try{localStorage.setItem("bykate-me",JSON.stringify({n:name,p:phone,e:email}))}catch(_){}
+    lastBooking={...data,name,items};
+    $("#doneRecap").innerHTML=recapHTML(data.starts_at,data.ends_at,items,totalsText(items))+`<span class="muted">A nombre de ${esc(name)} · ${esc(phone)}</span>`;
+    picked=[];save();renderMenu();renderTicket();slotsFor="";$("#bkNotes").value="";
+    go("stDone");
+  }catch(ex){err.textContent="No se pudo confirmar tu cita. Revisa tu conexión e intenta de nuevo."}
+  finally{btn.disabled=false;btn.textContent="Confirmar cita"}
+});
+$("#icsBtn").addEventListener("click",()=>{
+  if(!lastBooking)return;
+  const z=d=>new Date(d).toISOString().replace(/[-:]/g,"").replace(/\.\d{3}/,"");
+  const names=lastBooking.items.map(s=>s.name).join(" + ");
+  const ics=["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//ByKate//Citas//ES","BEGIN:VEVENT","UID:"+lastBooking.id+"@bykate","DTSTAMP:"+z(Date.now()),"DTSTART:"+z(lastBooking.starts_at),"DTEND:"+z(lastBooking.ends_at),
+    "SUMMARY:Cita con Kate · "+names.replace(/[,;]/g," "),"LOCATION:K.A Beauty Spa\\, 3984 Town Center Blvd\\, Orlando\\, FL 32837","DESCRIPTION:Tu cita en la silla roja. Para cambios escríbele a Kate por Instagram @bykate.aq",
+    "BEGIN:VALARM","TRIGGER:-PT3H","ACTION:DISPLAY","DESCRIPTION:Cita con Kate","END:VALARM","END:VEVENT","END:VCALENDAR"].join("\r\n");
+  const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([ics],{type:"text/calendar"}));a.download="cita-bykate.ics";document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},1000);
+});
+$("#againBtn").addEventListener("click",()=>{selSlot=null;go("stServices")});
+
 document.addEventListener("click",e=>{
   const tab=e.target.closest(".tab");if(tab){current=tab.dataset.cat;renderTabs();renderMenu();return}
   const add=e.target.closest(".add,.chip");if(add){toggle(add.dataset.id);return}
-  const rm=e.target.closest("[data-rm]");if(rm){toggle(rm.dataset.rm)}
+  const rm=e.target.closest("[data-rm]");if(rm){toggle(rm.dataset.rm);return}
+  const g=e.target.closest("[data-go]");if(g){go(g.dataset.go);return}
+  const day=e.target.closest(".day");if(day&&!day.disabled){selDay=day.dataset.day;selSlot=null;renderDays();return}
+  const tm=e.target.closest(".time");if(tm){selSlot=tm.dataset.slot;renderTimes();$("#toDetails").focus({preventScroll:true});return}
 });
 $("#tabs").addEventListener("keydown",e=>{if(!["ArrowLeft","ArrowRight"].includes(e.key))return;const i=CATS.findIndex(c=>c.id===current);const n=(i+(e.key==="ArrowRight"?1:-1)+CATS.length)%CATS.length;current=CATS[n].id;renderTabs();renderMenu();$("#tab-"+current).focus()});
-$("#copyBtn").addEventListener("click",()=>{const items=picked.map(id=>SERVICES.find(s=>s.id===id));copyText("Servicios: "+items.map(s=>s.name).join(" + "),"Selección copiada")});
+$("#mbarBtn").addEventListener("click",e=>{if(picked.length&&$("#stServices").hidden===false){e.preventDefault();go("stWhen")}});
 $("#copyAddr").addEventListener("click",()=>copyText("3984 Town Center Blvd, Orlando, FL 32837","Dirección copiada"));
-renderTabs();renderMenu();renderTicket();
+renderQuick();renderTabs();renderMenu();renderTicket();
+(async()=>{
+  if(!sb)return;
+  try{
+    const {data,error}=await sb.from("bk_services").select("id,cat,name,descr,minutes,price,from_price").order("sort");
+    if(error||!data||!data.length)return;
+    SERVICES=data.map(r=>({id:r.id,cat:r.cat,name:r.name,desc:r.descr,min:r.minutes,price:r.price,from:r.from_price}));
+    picked=picked.filter(id=>SERVICES.some(s=>s.id===id));save();
+    renderQuick();renderTabs();renderMenu();renderTicket();fillRvSvc();
+  }catch(e){}
+})();
 
 /* ---------- Reviews ---------- */
 const stars=n=>"★".repeat(n)+"☆".repeat(5-n);
-function reviewCard(r,mine){return `<article class="rcard${mine?" mine":""}"><span class="stars" aria-label="${r.stars} de 5 estrellas">${stars(r.stars)}</span><p>${esc(r.text)}</p><footer><span><b>${esc(r.name)}</b> · ${esc(r.svc)}</span><span class="src">${mine?"En esta página":"Booksy · clienta confirmada"}</span></footer></article>`}
+function reviewCard(r,mine){return `<article class="rcard${mine?" mine":""}"><span class="stars" aria-label="${r.stars} de 5 estrellas">${stars(r.stars)}</span><p>${esc(r.text)}</p><footer><span><b>${esc(r.name)}</b>${r.svc?" · "+esc(r.svc):""}</span><span class="src">${mine?"Reseña en la web":"Booksy · clienta confirmada"}</span></footer></article>`}
 let pageReviews=[];
 function renderReviews(){$("#cards").innerHTML=pageReviews.map(r=>reviewCard(r,true)).join("")+REVIEWS.map(r=>reviewCard(r,false)).join("")}
 renderReviews();
-$("#rvSvc").innerHTML=SERVICES.map(s=>`<option>${s.name}</option>`).join("")+"<option>Otro servicio</option>";
-
-let db=null;
+function fillRvSvc(){$("#rvSvc").innerHTML=SERVICES.map(s=>`<option>${esc(s.name)}</option>`).join("")+"<option>Otro servicio</option>"}
+fillRvSvc();
 const form=$("#rvForm"),status=$("#rvStatus");
 function setStatus(msg,cls){status.textContent=msg;status.className="status "+(cls||"")}
 (async()=>{
-  try{db=window.claude&&window.claude.use?await window.claude.use("db"):null}catch(e){db=null}
-  if(!db)return;
-  db.collection("reviews").orderBy("createdAt","desc").limit(30).onSnapshot(snap=>{
-    pageReviews=snap.docs.map(d=>d.data()).filter(r=>r&&r.name&&r.text).map(r=>({name:String(r.name).slice(0,40),svc:String(r.service||"").slice(0,60),stars:Math.min(5,Math.max(1,parseInt(r.stars)||5)),text:String(r.text).slice(0,600)}));
-    renderReviews();
-  },()=>{});
+  if(!sb)return;
+  try{
+    const {data}=await sb.from("bk_reviews").select("name,service,stars,body").order("created_at",{ascending:false}).limit(30);
+    if(data){pageReviews=data.map(r=>({name:r.name,svc:r.service,stars:r.stars,text:r.body}));renderReviews()}
+  }catch(e){}
 })();
 form.addEventListener("submit",async e=>{
   e.preventDefault();
   const name=$("#rvName").value.trim(),text=$("#rvText").value.trim(),service=$("#rvSvc").value,st=parseInt(form.querySelector('input[name="stars"]:checked').value);
-  if(!name){setStatus("Escribe tu nombre para publicar.","err");$("#rvName").focus();return}
+  if(name.length<2){setStatus("Escribe tu nombre para publicar.","err");$("#rvName").focus();return}
   if(text.length<10){setStatus("Cuéntanos un poco más (mínimo 10 caracteres).","err");$("#rvText").focus();return}
-  if(!db){setStatus("Las reseñas no están disponibles en esta vista. Puedes calificar tu cita en Booksy.","err");return}
+  if(!sb){setStatus("No pudimos conectar. Intenta de nuevo en un momento.","err");return}
   $("#rvSubmit").disabled=true;setStatus("Publicando…");
   try{
-    await db.collection("reviews").add({name,service,stars:st,text,createdAt:new Date().toISOString()});
+    const {error}=await sb.from("bk_reviews").insert({name,service,stars:st,body:text});
+    if(error)throw error;
+    pageReviews.unshift({name,svc:service,stars:st,text});renderReviews();
     form.reset();setStatus("¡Gracias! Tu reseña ya aparece arriba.","ok");
   }catch(err){setStatus("No se pudo publicar tu reseña. Inténtalo de nuevo en un momento.","err")}
   finally{$("#rvSubmit").disabled=false}
